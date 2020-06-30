@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import ProgressBar from '../App'
+import ProgressBar from '../ProgressBar'
 
 let wrapper
 
