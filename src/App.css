@@ -33,3 +33,10 @@ body {
 .fas.fa-star.highlighted{
   color: #000;
 }
+
+#options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(6rem, 10rem));
+  grid-gap: 1.5rem 3rem;
+  justify-content: center;
+}
