@@ -6,8 +6,8 @@ export default App
 function App () {
   return (
     <>
-    <ProgressBar />
-    {/* <InfoCard/>
+      <ProgressBar />
+      {/* <InfoCard/>
     <QuestionCard/>
     <ScoreCard/> */}
     </>
