@@ -14,3 +14,13 @@ body {
   width: 35rem;
   height: 50rem;
 }
+
+#progress_bar {
+  height: 1rem;
+}
+
+#progress_bar_fill {
+  background-color: #a9aaa9;
+  height: 1rem;
+  width: 50%;
+}
