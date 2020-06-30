@@ -24,3 +24,11 @@ body {
   height: 1rem;
   width: 50%;
 }
+
+.fas.fa-star{
+  color: #cbcccb;
+}
+
+.fas.fa-star.highlighted{
+  color: #000;
+}
