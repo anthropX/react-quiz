@@ -1,6 +1,7 @@
 import React from 'react'
-import './App.css'
+import '../App.css'
 import ProgressBar from './ProgressBar'
+export default App
 
 function App () {
   return (
@@ -12,5 +13,3 @@ function App () {
     </>
   )
 }
-
-export default App
