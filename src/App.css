@@ -13,6 +13,7 @@ body {
   margin-top: 5rem;
   width: 35rem;
   height: 50rem;
+  border: 7px #ededed solid;
 }
 
 #progress_bar {
