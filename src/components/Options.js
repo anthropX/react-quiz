@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 export default Options
 
 function Options ({ options, areOptionsDisabled, onOptionClick }) {
@@ -18,4 +19,10 @@ function Options ({ options, areOptionsDisabled, onOptionClick }) {
       })}
     </div>
   )
+}
+
+Options.propTypes = {
+  options: PropTypes.array,
+  areOptionsDisabled: PropTypes.bool,
+  onOptionClick: PropTypes.func
 }

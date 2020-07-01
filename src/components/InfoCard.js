@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 export default InfoCard
 
 function InfoCard ({
@@ -27,4 +28,10 @@ function InfoCard ({
       </div>
     </div>
   )
+}
+
+InfoCard.propTypes = {
+  noOfQuestionsAnswered: PropTypes.number,
+  questionCategory: PropTypes.string,
+  questionDifficulty: PropTypes.string
 }

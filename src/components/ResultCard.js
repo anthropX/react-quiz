@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 export default ResultCard
 
 function ResultCard ({ resultText }) {
@@ -11,4 +12,8 @@ function ResultCard ({ resultText }) {
       <button id='next_question_button'>Next Question</button>
     </div>
   )
+}
+
+ResultCard.propTypes = {
+  resultText: PropTypes.string
 }
