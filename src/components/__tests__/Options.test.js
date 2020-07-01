@@ -21,6 +21,14 @@ it('renders', () => {
   expect(wrapper.exists()).toBe(true)
 })
 
+it('has the same number of buttons as the size of options array', () => {
+  expect(wrapper.find('button').length).toEqual(4)
+  wrapper.setProps({
+    options: ['True', 'False']
+  })
+  expect(wrapper.find('button').length).toEqual(2)
+})
+
 it('displays text in each option based on prop value', () => {
   expect(wrapper.find('#option1').text()).toEqual('Arthur')
   expect(wrapper.find('#option2').text()).toEqual('Sir Toby Belch')
