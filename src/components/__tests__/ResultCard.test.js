@@ -5,7 +5,7 @@ import ResultCard from '../ResultCard'
 let wrapper
 
 beforeEach(() => {
-  wrapper = shallow(<ResultCard resultText='' />)
+  wrapper = shallow(<ResultCard resultText='' noOfQuestionsAnswered={0} />)
 })
 
 it('renders', () => {
@@ -26,4 +26,14 @@ it('displays result text from prop', () => {
   expect(wrapper.find('#result_text').text()).toEqual('Correct!')
   wrapper.setProps({ resultText: 'Sorry!' })
   expect(wrapper.find('#result_text').text()).toEqual('Sorry!')
+})
+
+it('displays game over only after the 20th question is answered', () => {
+  expect(wrapper.find('#game_over_text').props().className).toEqual('none')
+  wrapper.setProps({ noOfQuestionsAnswered: 1 })
+  expect(wrapper.find('#game_over_text').props().className).toEqual('none')
+  wrapper.setProps({ noOfQuestionsAnswered: 19 })
+  expect(wrapper.find('#game_over_text').props().className).toEqual('none')
+  wrapper.setProps({ noOfQuestionsAnswered: 20 })
+  expect(wrapper.find('#game_over_text').props().className).toEqual('')
 })
