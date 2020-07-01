@@ -5,7 +5,7 @@ import ResultCard from '../ResultCard'
 let wrapper
 
 beforeEach(() => {
-  wrapper = shallow(<ResultCard resultText='Correct!' />)
+  wrapper = shallow(<ResultCard resultText='' />)
 })
 
 it('renders', () => {
@@ -13,7 +13,9 @@ it('renders', () => {
 })
 
 it('displays result text from prop', () => {
+  expect(wrapper.find('#result_text').text()).toEqual('')
+  wrapper.setProps({ resultText: 'Correct!' })
   expect(wrapper.find('#result_text').text()).toEqual('Correct!')
   wrapper.setProps({ resultText: 'Sorry!' })
-  expect(wrapper.find('#result_text').text()).toEqual('Correct!')
+  expect(wrapper.find('#result_text').text()).toEqual('Sorry!')
 })
