@@ -2,6 +2,7 @@ import React from 'react'
 export default ScoreCard
 function ScoreCard ({ maxScore, score, minScore }) {
   function setScoreStyle (width) {
+    if (isNaN(width)) return { width: '0%' }
     if (width === 100) {
       return {
         width: width + '%',
@@ -21,12 +22,7 @@ function ScoreCard ({ maxScore, score, minScore }) {
       </div>
       <div id='score_bar'>
         <div id='max_score_fill' style={setScoreStyle(maxScore)} />
-        <div
-          id='current_score_fill'
-          style={{
-            width: isNaN(score) ? 0 : setScoreStyle(score) + '%'
-          }}
-        />
+        <div id='current_score_fill' style={setScoreStyle(score)} />
         <div id='min_score_fill' style={setScoreStyle(minScore)} />
       </div>
     </div>
