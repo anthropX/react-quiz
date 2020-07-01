@@ -77,18 +77,34 @@ font-size: 1.1rem;
 
 #options {
   display: grid;
-  grid-template-columns: repeat(2, minmax(8rem, 11.5rem));
+  grid-template-columns: repeat(2, 11.5rem);
   grid-gap: 1.5rem 3rem;
   justify-content: space-between;  
 }
 
-#options > button {
+button {
   font-size: 1.1rem;
   line-height: 1.4rem;
   border: 1.4px #000 solid;
   border-radius: 0.2rem;
   background-color: #e5e6e5;
+}
 
+#result_card {
+  margin-top: 2.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#result_text {
+  font-size: 1.5em;
+  margin-bottom: 1.2rem;
+}
+
+#next_question_button {
+  line-height: 2rem;
+  width: 9.5rem;
 }
 
 #score_card {
