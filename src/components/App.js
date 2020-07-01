@@ -11,7 +11,11 @@ function App () {
   return (
     <>
       <ProgressBar progressPercentage={(noOfQuestionsAnswered / 20) * 100} />
-      <InfoCard />
+      <InfoCard
+        noOfQuestionsAnswered={noOfQuestionsAnswered}
+        questionCategory='Entertainment: Video Games'
+        questionDifficulty='medium'
+      />
       <QuestionCard />
       <ScoreCard />
     </>
