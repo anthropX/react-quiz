@@ -27,7 +27,7 @@ function App () {
         ]}
         areOptionsDisabled={false}
         resultText=''
-        onClick={event => {
+        onOptionClick={event => {
           console.log(event.target.id)
         }}
       />

@@ -9,20 +9,20 @@ function QuestionCard ({
   options,
   areOptionsDisabled,
   resultText,
-  onClick
+  onOptionClick
 }) {
   console.log({ questionText })
   console.log({ options })
   console.log({ areOptionsDisabled })
   console.log({ resultText })
-  console.log({ onClick })
+  console.log({ onOptionClick })
   return (
     <div id='question_card'>
       <p id='question_text'>{questionText}</p>
       <Options
         options={options}
         areOptionsDisabled={areOptionsDisabled}
-        onClick={onClick}
+        onOptionClick={onOptionClick}
       />
       <ResultCard resultText={resultText} />
     </div>

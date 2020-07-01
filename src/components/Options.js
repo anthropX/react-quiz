@@ -1,7 +1,7 @@
 import React from 'react'
 export default Options
 
-function Options ({ options, areOptionsDisabled, onClick }) {
+function Options ({ options, areOptionsDisabled, onOptionClick }) {
   return (
     <div id='options'>
       {options.map((option, index) => {
@@ -9,7 +9,7 @@ function Options ({ options, areOptionsDisabled, onClick }) {
           <button
             id={`option${index + 1}`}
             disabled={areOptionsDisabled}
-            onClick={onClick}
+            onClick={onOptionClick}
             key={index}
           >
             {option}
