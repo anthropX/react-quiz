@@ -4,6 +4,7 @@ import App from '../App'
 import ProgressBar from '../ProgressBar'
 import InfoCard from '../InfoCard'
 import QuestionCard from '../QuestionCard'
+import ResultCard from '../ResultCard'
 import ScoreCard from '../ScoreCard'
 
 let wrapper
@@ -26,6 +27,10 @@ it('has the info card', () => {
 
 it('has the question card', () => {
   expect(wrapper.find(QuestionCard).length).toEqual(1)
+})
+
+it('has the result card', () => {
+  expect(wrapper.find(ResultCard).length).toEqual(1)
 })
 
 it('has the score card', () => {

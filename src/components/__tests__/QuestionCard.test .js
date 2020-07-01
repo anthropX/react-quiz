@@ -2,7 +2,6 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import QuestionCard from '../QuestionCard'
 import Options from '../Options'
-import ResultCard from '../ResultCard'
 
 let wrapper
 
@@ -17,7 +16,6 @@ beforeEach(() => {
         'Guy of Gisbourne',
         'Dirk the Daring'
       ]}
-      resultText='Correct!'
     />
   )
 })
@@ -28,10 +26,6 @@ it('renders', () => {
 
 it('has the options', () => {
   expect(wrapper.find(Options).length).toEqual(1)
-})
-
-it('has the result card', () => {
-  expect(wrapper.find(ResultCard).length).toEqual(1)
 })
 
 it('displays the question text from prop', () => {

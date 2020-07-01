@@ -3,6 +3,7 @@ import '../App.css'
 import ProgressBar from './ProgressBar'
 import InfoCard from './InfoCard'
 import QuestionCard from './QuestionCard'
+import ResultCard from './ResultCard'
 import ScoreCard from './ScoreCard'
 export default App
 
@@ -26,10 +27,12 @@ function App () {
       'Dirk the Daring'
     ],
     areOptionsDisabled: false,
-    resultText: '',
     onOptionClick: event => {
       console.log(event.target.id)
-    },
+    }
+  }
+  const resultCardProps = {
+    resultText: '',
     noOfQuestionsAnswered,
     onNextQuestionButtonClick: event => {
       console.log(event.target.id)
@@ -40,6 +43,7 @@ function App () {
       <ProgressBar {...progressBarProps} />
       <InfoCard {...infoCardProps} />
       <QuestionCard {...questionCardProps} />
+      <ResultCard {...resultCardProps} />
       <ScoreCard />
     </>
   )
