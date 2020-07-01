@@ -37,3 +37,13 @@ it('displays game over only after the 20th question is answered', () => {
   wrapper.setProps({ noOfQuestionsAnswered: 20 })
   expect(wrapper.find('#game_over_text').props().className).toEqual('')
 })
+
+it('disables the next question button only after the 20th question is answered', () => {
+  expect(wrapper.find('#next_question_button').props().disabled).toEqual(false)
+  wrapper.setProps({ noOfQuestionsAnswered: 1 })
+  expect(wrapper.find('#next_question_button').props().disabled).toEqual(false)
+  wrapper.setProps({ noOfQuestionsAnswered: 19 })
+  expect(wrapper.find('#next_question_button').props().disabled).toEqual(false)
+  wrapper.setProps({ noOfQuestionsAnswered: 20 })
+  expect(wrapper.find('#next_question_button').props().disabled).toEqual(true)
+})
