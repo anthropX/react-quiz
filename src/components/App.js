@@ -19,8 +19,17 @@ function App () {
       <QuestionCard
         questionText="What was the name of the hero in the 80s animated video game 'Dragon's
         Lair'"
-        options={['Arthur', 'Sir Toby Belch', 'Guy of Gisbourne', 'Dirk the Daring']}
+        options={[
+          'Arthur',
+          'Sir Toby Belch',
+          'Guy of Gisbourne',
+          'Dirk the Daring'
+        ]}
+        areOptionsDisabled={false}
         resultText='Correct!'
+        onClick={event => {
+          console.log(event.target.id)
+        }}
       />
       <ScoreCard />
     </>
