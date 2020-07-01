@@ -8,33 +8,38 @@ export default App
 
 function App () {
   const [noOfQuestionsAnswered, setNoOfQuestionsAnswered] = useState(0)
+  const progressBarProps = {
+    progressPercentage: (noOfQuestionsAnswered / 20) * 100
+  }
+  const infoCardProps = {
+    noOfQuestionsAnswered,
+    questionCategory: 'Entertainment: Video Games',
+    questionDifficulty: 'medium'
+  }
+  const questionCardProps = {
+    questionText:
+      "What was the name of the hero in the 80s animated video game 'Dragon's Lair'",
+    options: [
+      'Arthur',
+      'Sir Toby Belch',
+      'Guy of Gisbourne',
+      'Dirk the Daring'
+    ],
+    areOptionsDisabled: false,
+    resultText: '',
+    onOptionClick: event => {
+      console.log(event.target.id)
+    },
+    noOfQuestionsAnswered,
+    onNextQuestionButtonClick: event => {
+      console.log(event.target.id)
+    }
+  }
   return (
     <>
-      <ProgressBar progressPercentage={(noOfQuestionsAnswered / 20) * 100} />
-      <InfoCard
-        noOfQuestionsAnswered={noOfQuestionsAnswered}
-        questionCategory='Entertainment: Video Games'
-        questionDifficulty='medium'
-      />
-      <QuestionCard
-        questionText="What was the name of the hero in the 80s animated video game 'Dragon's
-        Lair'"
-        options={[
-          'Arthur',
-          'Sir Toby Belch',
-          'Guy of Gisbourne',
-          'Dirk the Daring'
-        ]}
-        areOptionsDisabled={false}
-        resultText=''
-        onOptionClick={event => {
-          console.log(event.target.id)
-        }}
-        noOfQuestionsAnswered={noOfQuestionsAnswered}
-        onNextQuestionButtonClick={event => {
-          console.log(event.target.id)
-        }}
-      />
+      <ProgressBar {...progressBarProps} />
+      <InfoCard {...infoCardProps} />
+      <QuestionCard {...questionCardProps} />
       <ScoreCard />
     </>
   )
