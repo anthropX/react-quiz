@@ -13,6 +13,7 @@ beforeEach(() => {
         'Guy of Gisbourne',
         'Dirk the Daring'
       ]}
+      areOptionsDisabled={false}
     />
   )
 })
@@ -41,4 +42,17 @@ it('displays text in each option based on prop value', () => {
   expect(wrapper.find('#option2').text()).toEqual('1492')
   expect(wrapper.find('#option3').text()).toEqual('1963')
   expect(wrapper.find('#option4').text()).toEqual('1987')
+})
+
+it('disables buttons based on prop value', () => {
+  expect(wrapper.find('#option1').props().disabled).toEqual(false)
+  expect(wrapper.find('#option2').props().disabled).toEqual(false)
+  expect(wrapper.find('#option3').props().disabled).toEqual(false)
+  expect(wrapper.find('#option4').props().disabled).toEqual(false)
+
+  wrapper.setProps({ areOptionsDisabled: true })
+  expect(wrapper.find('#option1').props().disabled).toEqual(true)
+  expect(wrapper.find('#option2').props().disabled).toEqual(true)
+  expect(wrapper.find('#option3').props().disabled).toEqual(true)
+  expect(wrapper.find('#option4').props().disabled).toEqual(true)
 })
