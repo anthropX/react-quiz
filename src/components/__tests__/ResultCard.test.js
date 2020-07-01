@@ -28,22 +28,30 @@ it('displays result text from prop', () => {
   expect(wrapper.find('#result_text').text()).toEqual('Sorry!')
 })
 
-it('displays game over only after the 20th question is answered', () => {
-  expect(wrapper.find('#game_over_text').props().className).toEqual('none')
-  wrapper.setProps({ noOfQuestionsAnswered: 1 })
-  expect(wrapper.find('#game_over_text').props().className).toEqual('none')
-  wrapper.setProps({ noOfQuestionsAnswered: 19 })
-  expect(wrapper.find('#game_over_text').props().className).toEqual('none')
-  wrapper.setProps({ noOfQuestionsAnswered: 20 })
-  expect(wrapper.find('#game_over_text').props().className).toEqual('')
-})
+describe('after the 20th question is answered', () => {
+  it('displays game over', () => {
+    expect(wrapper.find('#game_over_text').props().className).toEqual('none')
+    wrapper.setProps({ noOfQuestionsAnswered: 1 })
+    expect(wrapper.find('#game_over_text').props().className).toEqual('none')
+    wrapper.setProps({ noOfQuestionsAnswered: 19 })
+    expect(wrapper.find('#game_over_text').props().className).toEqual('none')
+    wrapper.setProps({ noOfQuestionsAnswered: 20 })
+    expect(wrapper.find('#game_over_text').props().className).toEqual('')
+  })
 
-it('disables the next question button only after the 20th question is answered', () => {
-  expect(wrapper.find('#next_question_button').props().disabled).toEqual(false)
-  wrapper.setProps({ noOfQuestionsAnswered: 1 })
-  expect(wrapper.find('#next_question_button').props().disabled).toEqual(false)
-  wrapper.setProps({ noOfQuestionsAnswered: 19 })
-  expect(wrapper.find('#next_question_button').props().disabled).toEqual(false)
-  wrapper.setProps({ noOfQuestionsAnswered: 20 })
-  expect(wrapper.find('#next_question_button').props().disabled).toEqual(true)
+  it('disables the next question button', () => {
+    expect(wrapper.find('#next_question_button').props().disabled).toEqual(
+      false
+    )
+    wrapper.setProps({ noOfQuestionsAnswered: 1 })
+    expect(wrapper.find('#next_question_button').props().disabled).toEqual(
+      false
+    )
+    wrapper.setProps({ noOfQuestionsAnswered: 19 })
+    expect(wrapper.find('#next_question_button').props().disabled).toEqual(
+      false
+    )
+    wrapper.setProps({ noOfQuestionsAnswered: 20 })
+    expect(wrapper.find('#next_question_button').props().disabled).toEqual(true)
+  })
 })
