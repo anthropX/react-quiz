@@ -45,3 +45,13 @@ it('displays the question category text from prop value', () => {
     'Geography'
   )
 })
+
+it('indicates the question difficulty based on prop value', () => {
+  expect(wrapper.find('.fas.fa-star.highlighted').length).toEqual(2)
+
+  wrapper.setProps({ questionDifficulty: 'easy' })
+  expect(wrapper.find('.fas.fa-star.highlighted').length).toEqual(1)
+
+  wrapper.setProps({ questionDifficulty: 'hard' })
+  expect(wrapper.find('.fas.fa-star.highlighted').length).toEqual(3)
+})
