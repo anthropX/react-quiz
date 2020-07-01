@@ -26,7 +26,7 @@ function App () {
           'Dirk the Daring'
         ]}
         areOptionsDisabled={false}
-        resultText='Correct!'
+        resultText=''
         onClick={event => {
           console.log(event.target.id)
         }}

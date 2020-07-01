@@ -97,6 +97,10 @@ button {
   align-items: center;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 .horizontal_container {
   display: flex;
 }
