@@ -31,3 +31,37 @@ it('rounds and displays the score from props as text', () => {
   wrapper.setProps({ score: 16.666666666666664 })
   expect(wrapper.find('#current_score_text').text()).toEqual('Score: 17%')
 })
+
+it('sets size of the max score fill based on prop value', () => {
+  expect(wrapper.find('#max_score_fill').props().style.width).toEqual('100%')
+
+  wrapper.setProps({ maxScore: 75 })
+
+  expect(wrapper.find('#max_score_fill').props().style.width).toEqual('75%')
+
+  wrapper.setProps({ maxScore: 20 })
+  expect(wrapper.find('#max_score_fill').props().style.width).toEqual('20%')
+})
+
+it('sets size of the current score fill based on prop value', () => {
+  expect(wrapper.find('#current_score_fill').props().style.width).toEqual('0%')
+
+  wrapper.setProps({ score: 33.33333333333333 })
+  expect(wrapper.find('#current_score_fill').props().style.width).toEqual(
+    '33.33333333333333%'
+  )
+  wrapper.setProps({ score: 16.666666666666664 })
+  expect(wrapper.find('#current_score_fill').props().style.width).toEqual(
+    '16.666666666666664%'
+  )
+})
+
+it('sets size of the min score fill based on prop value', () => {
+  expect(wrapper.find('#min_score_fill').props().style.width).toEqual('0%')
+
+  wrapper.setProps({ minScore: 25 })
+  expect(wrapper.find('#min_score_fill').props().style.width).toEqual('25%')
+
+  wrapper.setProps({ minScore: 80 })
+  expect(wrapper.find('#min_score_fill').props().style.width).toEqual('80%')
+})
