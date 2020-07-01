@@ -18,7 +18,11 @@ function ResultCard ({
           Game Over!
         </p>
       </div>
-      <button id='next_question_button' onClick={onNextQuestionButtonClick}>
+      <button
+        id='next_question_button'
+        disabled={noOfQuestionsAnswered === 20}
+        onClick={onNextQuestionButtonClick}
+      >
         Next Question
       </button>
     </div>
