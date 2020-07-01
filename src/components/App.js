@@ -30,6 +30,9 @@ function App () {
         onOptionClick={event => {
           console.log(event.target.id)
         }}
+        onNextQuestionButtonClick={event => {
+          console.log(event.target.id)
+        }}
       />
       <ScoreCard />
     </>
