@@ -1,13 +1,16 @@
 import React from 'react'
 export default Options
 
-function Options () {
+function Options ({ options }) {
   return (
     <div id='options'>
-      <button>Arthur</button>
-      <button>Sir Toby Belch</button>
-      <button>Guy of Gisbourne</button>
-      <button>Dirk the Daring</button>
+      {options.map((option, index) => {
+        return (
+          <button id={`option${index + 1}`} key={index}>
+            {option}
+          </button>
+        )
+      })}
     </div>
   )
 }
