@@ -31,3 +31,17 @@ it('displays the number of questions answered based on prop value', () => {
     'Question 17 of 20'
   )
 })
+
+it('displays the question category text from prop value', () => {
+  expect(wrapper.find('#question_category_text').text()).toEqual(
+    'Entertainment: Video Games'
+  )
+  wrapper.setProps({ questionCategory: 'Animals' })
+  expect(wrapper.find('#question_category_text').text()).toEqual(
+    'Animals'
+  )
+  wrapper.setProps({ questionCategory: 'Geography' })
+  expect(wrapper.find('#question_category_text').text()).toEqual(
+    'Geography'
+  )
+})
