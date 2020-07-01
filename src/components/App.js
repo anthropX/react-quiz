@@ -44,7 +44,6 @@ function App () {
     score: (noOfCorrectAnswers / noOfQuestionsAnswered) * 100,
     minScore: (noOfCorrectAnswers / 20) * 100
   }
-  console.log(scoreCardProps)
 
   return (
     <>

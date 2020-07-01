@@ -9,10 +9,6 @@ function QuestionCard ({
   areOptionsDisabled,
   onOptionClick
 }) {
-  console.log({ questionText })
-  console.log({ options })
-  console.log({ areOptionsDisabled })
-  console.log({ onOptionClick })
   return (
     <div id='question_card'>
       <p id='question_text'>{questionText}</p>
