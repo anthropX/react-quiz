@@ -14,7 +14,10 @@ const QuestionCard = () => {
         <button>Dirk the Daring</button>
       </div>
       <div id='result_card'>
-        <p id='result_text'>Correct!</p>
+        <div className='horizontal_container'>
+          <p id='result_text'>Correct!</p>
+          <p id='game_over_text'>Game Over!</p>
+        </div>
         <button id='next_question_button'>Next Question</button>
       </div>
     </div>

@@ -97,9 +97,18 @@ button {
   align-items: center;
 }
 
-#result_text {
+.horizontal_container {
+  display: flex;
+}
+
+#result_text, #game_over_text {
   font-size: 1.5em;
   margin-bottom: 1.2rem;
+  padding-left: 0.3rem;
+}
+
+#game_over_text {
+  display: none;
 }
 
 #next_question_button {
