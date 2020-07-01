@@ -30,6 +30,7 @@ function App () {
         onOptionClick={event => {
           console.log(event.target.id)
         }}
+        noOfQuestionsAnswered={noOfQuestionsAnswered}
         onNextQuestionButtonClick={event => {
           console.log(event.target.id)
         }}

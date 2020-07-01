@@ -10,6 +10,7 @@ function QuestionCard ({
   areOptionsDisabled,
   resultText,
   onOptionClick,
+  noOfQuestionsAnswered,
   onNextQuestionButtonClick
 }) {
   console.log({ questionText })
@@ -17,6 +18,7 @@ function QuestionCard ({
   console.log({ areOptionsDisabled })
   console.log({ resultText })
   console.log({ onOptionClick })
+  console.log({ noOfQuestionsAnswered })
   console.log({ onNextQuestionButtonClick })
   return (
     <div id='question_card'>
@@ -28,6 +30,7 @@ function QuestionCard ({
       />
       <ResultCard
         resultText={resultText}
+        noOfQuestionsAnswered={noOfQuestionsAnswered}
         onNextQuestionButtonClick={onNextQuestionButtonClick}
       />
     </div>
