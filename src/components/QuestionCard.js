@@ -1,8 +1,9 @@
 import React from 'react'
 import Options from './Options'
 import ResultCard from './ResultCard'
+export default QuestionCard
 
-const QuestionCard = ({ questionText, options, resultText }) => {
+function QuestionCard ({ questionText, options, resultText }) {
   console.log({ questionText })
   console.log({ options })
   console.log({ resultText })
@@ -14,5 +15,3 @@ const QuestionCard = ({ questionText, options, resultText }) => {
     </div>
   )
 }
-
-export default QuestionCard
