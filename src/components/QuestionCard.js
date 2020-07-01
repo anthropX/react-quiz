@@ -1,4 +1,5 @@
 import React from 'react'
+import Options from './Options'
 
 const QuestionCard = () => {
   return (
@@ -7,12 +8,7 @@ const QuestionCard = () => {
         What was the name of the hero in the 80s animated video game 'Dragon's
         Lair'?
       </p>
-      <div id='options'>
-        <button>Arthur</button>
-        <button>Sir Toby Belch</button>
-        <button>Guy of Gisbourne</button>
-        <button>Dirk the Daring</button>
-      </div>
+      <Options />
       <div id='result_card'>
         <div className='horizontal_container'>
           <p id='result_text'>Correct!</p>
