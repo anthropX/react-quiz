@@ -21,3 +21,13 @@ it('displays the max score from props as text', () => {
   wrapper.setProps({ maxScore: 20 })
   expect(wrapper.find('#max_score_text').text()).toEqual('Max Score: 20%')
 })
+
+it('rounds and displays the score from props as text', () => {
+  expect(wrapper.find('#current_score_text').text()).toEqual('Score: 0%')
+
+  wrapper.setProps({ score: 33.33333333333333 })
+  expect(wrapper.find('#current_score_text').text()).toEqual('Score: 33%')
+
+  wrapper.setProps({ score: 16.666666666666664 })
+  expect(wrapper.find('#current_score_text').text()).toEqual('Score: 17%')
+})
