@@ -30,5 +30,7 @@ function ResultCard ({
 }
 
 ResultCard.propTypes = {
-  resultText: PropTypes.string
+  resultText: PropTypes.string,
+  noOfQuestionsAnswered: PropTypes.number,
+  onNextQuestionButtonClick: PropTypes.func
 }

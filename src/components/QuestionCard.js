@@ -27,5 +27,7 @@ function QuestionCard ({
 
 QuestionCard.propTypes = {
   questionText: PropTypes.string,
-  options: PropTypes.array
+  options: PropTypes.array,
+  areOptionsDisabled: PropTypes.bool,
+  onOptionClick: PropTypes.func
 }
