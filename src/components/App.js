@@ -8,7 +8,8 @@ import ScoreCard from './ScoreCard'
 export default App
 
 function App () {
-  const [noOfQuestionsAnswered, setNoOfQuestionsAnswered] = useState(0)
+  const [noOfCorrectAnswers, setNoOfCorrectAnswers] = useState(1)
+  const [noOfQuestionsAnswered, setNoOfQuestionsAnswered] = useState(1)
   const progressBarProps = {
     progressPercentage: (noOfQuestionsAnswered / 20) * 100
   }
@@ -38,13 +39,20 @@ function App () {
       console.log(event.target.id)
     }
   }
+  const scoreCardProps = {
+    maxScore: ((noOfCorrectAnswers + 20 - noOfQuestionsAnswered) / 20) * 100,
+    score: (noOfCorrectAnswers / noOfQuestionsAnswered) * 100,
+    minScore: (noOfCorrectAnswers / 20) * 100
+  }
+  console.log(scoreCardProps)
+
   return (
     <>
       <ProgressBar {...progressBarProps} />
       <InfoCard {...infoCardProps} />
       <QuestionCard {...questionCardProps} />
       <ResultCard {...resultCardProps} />
-      <ScoreCard />
+      <ScoreCard {...scoreCardProps} />
     </>
   )
 }
