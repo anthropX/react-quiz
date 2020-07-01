@@ -16,7 +16,12 @@ function App () {
         questionCategory='Entertainment: Video Games'
         questionDifficulty='medium'
       />
-      <QuestionCard />
+      <QuestionCard
+        questionText="What was the name of the hero in the 80s animated video game 'Dragon's
+        Lair'"
+        options={['Arthur', 'Sir Toby Belch', 'Guy of Gisbourne', 'Dirk the Daring']}
+        resultText='Correct!'
+      />
       <ScoreCard />
     </>
   )
