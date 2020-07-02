@@ -175,4 +175,24 @@ describe('When the next question button is clicked', () => {
       'Entertainment: Books'
     )
   })
+
+  it('updates the question difficulty indicator', () => {
+    expect(wrapper.find('.fas.fa-star.highlighted').length).toEqual(3)
+
+    wrapper.find('#option4').simulate('click')
+    wrapper.find('#next_question_button').simulate('click')
+    expect(wrapper.find('.fas.fa-star.highlighted').length).toEqual(1)
+
+    wrapper.find('#option4').simulate('click')
+    wrapper.find('#next_question_button').simulate('click')
+    expect(wrapper.find('.fas.fa-star.highlighted').length).toEqual(3)
+
+    wrapper.find('#option2').simulate('click')
+    wrapper.find('#next_question_button').simulate('click')
+    expect(wrapper.find('.fas.fa-star.highlighted').length).toEqual(1)
+
+    wrapper.find('#option2').simulate('click')
+    wrapper.find('#next_question_button').simulate('click')
+    expect(wrapper.find('.fas.fa-star.highlighted').length).toEqual(2)
+  })
 })
