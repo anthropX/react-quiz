@@ -12,6 +12,8 @@ function App () {
   const [questionIndex, setQuestionIndex] = useState(0)
   const [noOfCorrectAnswers, setNoOfCorrectAnswers] = useState(0)
   const [noOfQuestionsAnswered, setNoOfQuestionsAnswered] = useState(0)
+  const [areOptionsDisabled, setAreOptionsDisabled] = useState(false)
+  const [resultText, setResultText] = useState('')
   const progressBarProps = {
     progressPercentage: (noOfQuestionsAnswered / 20) * 100
   }
@@ -26,13 +28,13 @@ function App () {
       ...getIncorrectAnswersFromJson(questionIndex),
       getValueFromJson(questionIndex, 'correct_answer')
     ],
-    areOptionsDisabled: false,
+    areOptionsDisabled,
     onOptionClick: event => {
       console.log(event.target.id)
     }
   }
   const resultCardProps = {
-    resultText: '',
+    resultText,
     noOfQuestionsAnswered,
     onNextQuestionButtonClick: event => {
       console.log(event.target.id)
