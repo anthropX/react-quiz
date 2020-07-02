@@ -156,3 +156,18 @@ it('increments the number of questions answered text when the next question butt
     'Question 2 of 20'
   )
 })
+
+it('updates the question category text when the next question button is clicked', () => {
+  expect(wrapper.find('#question_category_text').text()).toEqual(
+    'Entertainment: Video Games'
+  )
+  wrapper.find('#option4').simulate('click')
+  wrapper.find('#next_question_button').simulate('click')
+  expect(wrapper.find('#question_category_text').text()).toEqual('Animals')
+
+  wrapper.find('#option3').simulate('click')
+  wrapper.find('#next_question_button').simulate('click')
+  expect(wrapper.find('#question_category_text').text()).toEqual(
+    'Entertainment: Books'
+  )
+})
