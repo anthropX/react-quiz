@@ -252,6 +252,27 @@ it('disables all options when an option is clicked, enables all options when the
   expect(isEveryOptionDisabled()).toEqual(true)
 })
 
+it('displays the result card when one of the options is clicked, hides the result card when the next question button is clicked', () => {
+  expect(wrapper.find('#result_card').props().className).toEqual('hidden')
+  wrapper.find('#option1').simulate('click')
+  expect(wrapper.find('#result_card').props().className).toEqual('')
+
+  wrapper.find('#next_question_button').simulate('click')
+  expect(wrapper.find('#result_card').props().className).toEqual('hidden')
+  wrapper.find('#option2').simulate('click')
+  expect(wrapper.find('#result_card').props().className).toEqual('')
+
+  wrapper.find('#next_question_button').simulate('click')
+  expect(wrapper.find('#result_card').props().className).toEqual('hidden')
+  wrapper.find('#option3').simulate('click')
+  expect(wrapper.find('#result_card').props().className).toEqual('')
+
+  wrapper.find('#next_question_button').simulate('click')
+  expect(wrapper.find('#result_card').props().className).toEqual('hidden')
+  wrapper.find('#option4').simulate('click')
+  expect(wrapper.find('#result_card').props().className).toEqual('')
+})
+
 function isEveryOptionDisabled () {
   if (
     wrapper.find('#option1').props().disabled &&
