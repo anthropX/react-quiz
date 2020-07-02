@@ -1,10 +1,8 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import App from './App'
-/* Mock so that shuffle array method simply returns the original array
-
-This will reduce testing complexity
-*/
+// Mock so that shuffle array method simply returns the original array
+// This will reduce testing complexity
 jest.mock('../util/array')
 
 let wrapper
