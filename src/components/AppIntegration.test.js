@@ -211,4 +211,25 @@ describe('When the next question button is clicked', () => {
       "What is Ron Weasley's middle name?"
     )
   })
+
+  it('updates text in each option', () => {
+    expect(wrapper.find('#option1').text()).toEqual('Arthur')
+    expect(wrapper.find('#option2').text()).toEqual('Sir Toby Belch')
+    expect(wrapper.find('#option3').text()).toEqual('Guy of Gisbourne')
+    expect(wrapper.find('#option4').text()).toEqual('Dirk the Daring')
+
+    wrapper.find('#option4').simulate('click')
+    wrapper.find('#next_question_button').simulate('click')
+    expect(wrapper.find('#option1').text()).toEqual('Homo Ergaster')
+    expect(wrapper.find('#option2').text()).toEqual('Homo Erectus')
+    expect(wrapper.find('#option3').text()).toEqual('Homo Neanderthalensis')
+    expect(wrapper.find('#option4').text()).toEqual('Homo Sapiens')
+
+    wrapper.find('#option3').simulate('click')
+    wrapper.find('#next_question_button').simulate('click')
+    expect(wrapper.find('#option1').text()).toEqual('Arthur')
+    expect(wrapper.find('#option2').text()).toEqual('John')
+    expect(wrapper.find('#option3').text()).toEqual('Dominic')
+    expect(wrapper.find('#option4').text()).toEqual('Bilius')
+  })
 })
