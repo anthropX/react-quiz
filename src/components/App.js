@@ -10,8 +10,8 @@ export default App
 
 function App () {
   const [questionIndex, setQuestionIndex] = useState(0)
-  const [noOfCorrectAnswers, setNoOfCorrectAnswers] = useState(1)
-  const [noOfQuestionsAnswered, setNoOfQuestionsAnswered] = useState(1)
+  const [noOfCorrectAnswers, setNoOfCorrectAnswers] = useState(0)
+  const [noOfQuestionsAnswered, setNoOfQuestionsAnswered] = useState(0)
   const progressBarProps = {
     progressPercentage: (noOfQuestionsAnswered / 20) * 100
   }
