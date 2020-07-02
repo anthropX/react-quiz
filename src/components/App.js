@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { getValueFromJson, getIncorrectAnswersFromJson } from '../util/api'
 import '../App.css'
 import ProgressBar from './ProgressBar'
 import InfoCard from './InfoCard'
@@ -8,6 +9,7 @@ import ScoreCard from './ScoreCard'
 export default App
 
 function App () {
+  const [questionIndex, setQuestionIndex] = useState(0)
   const [noOfCorrectAnswers, setNoOfCorrectAnswers] = useState(1)
   const [noOfQuestionsAnswered, setNoOfQuestionsAnswered] = useState(1)
   const progressBarProps = {
@@ -15,17 +17,14 @@ function App () {
   }
   const infoCardProps = {
     noOfQuestionsAnswered,
-    questionCategory: 'Entertainment: Video Games',
-    questionDifficulty: 'medium'
+    questionCategory: getValueFromJson(questionIndex, 'category'),
+    questionDifficulty: getValueFromJson(questionIndex, 'difficulty')
   }
   const questionCardProps = {
-    questionText:
-      "What was the name of the hero in the 80s animated video game 'Dragon's Lair'",
+    questionText: getValueFromJson(questionIndex, 'question'),
     options: [
-      'Arthur',
-      'Sir Toby Belch',
-      'Guy of Gisbourne',
-      'Dirk the Daring'
+      ...getIncorrectAnswersFromJson(questionIndex),
+      getValueFromJson(questionIndex, 'correct_answer')
     ],
     areOptionsDisabled: false,
     onOptionClick: event => {
