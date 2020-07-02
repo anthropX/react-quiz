@@ -158,6 +158,7 @@ button {
 }
 
 #current_score_fill {
+  height: 1.55rem;
   background-color: #717171;
   width: 0%;
 }
