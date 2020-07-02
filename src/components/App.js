@@ -75,7 +75,7 @@ function App () {
     }
   }
 
-  function handleNextQuestionButtonClick (event) {
+  function handleNextQuestionButtonClick () {
     setQuestionIndex(questionIndex + 1)
     setOptionSelected(-1)
     setAreOptionsDisabled(false)
