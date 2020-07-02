@@ -91,9 +91,14 @@ button {
   outline: none;
 }
 
+button:disabled {
+  border: 1.4px #a3a3a3 solid;
+}
+
 button.highlighted {
   background-color: #000;
   color: #fff;
+  border: 1.4px #000 solid;
 }
 
 #result_card {
