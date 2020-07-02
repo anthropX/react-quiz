@@ -10,15 +10,16 @@ function QuestionCard ({
   optionSelected,
   onOptionClick
 }) {
+  const optionsProps = {
+    options,
+    areOptionsDisabled,
+    optionSelected,
+    onOptionClick
+  }
   return (
     <div id='question_card'>
       <p id='question_text'>{questionText}</p>
-      <Options
-        options={options}
-        areOptionsDisabled={areOptionsDisabled}
-        optionSelected={optionSelected}
-        onOptionClick={onOptionClick}
-      />
+      <Options {...optionsProps} />
     </div>
   )
 }
