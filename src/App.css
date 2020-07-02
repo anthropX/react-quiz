@@ -88,6 +88,7 @@ button {
   border: 1.4px #000 solid;
   border-radius: 0.2rem;
   background-color: #e5e6e5;
+  outline: none;
 }
 
 #result_card {
