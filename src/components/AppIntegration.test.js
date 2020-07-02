@@ -233,3 +233,45 @@ describe('When the next question button is clicked', () => {
     expect(wrapper.find('#option4').text()).toEqual('Bilius')
   })
 })
+
+it('disables all options when an option is clicked, enables all options when the next question button is clicked', () => {
+  expect(isEveryOptionEnabled()).toEqual(true)
+  wrapper.find('#option3').simulate('click')
+  expect(isEveryOptionDisabled()).toEqual(true)
+  wrapper.find('#next_question_button').simulate('click')
+  expect(isEveryOptionEnabled()).toEqual(true)
+  wrapper.find('#option2').simulate('click')
+  expect(isEveryOptionDisabled()).toEqual(true)
+  wrapper.find('#next_question_button').simulate('click')
+  expect(isEveryOptionEnabled()).toEqual(true)
+  wrapper.find('#option1').simulate('click')
+  expect(isEveryOptionDisabled()).toEqual(true)
+  wrapper.find('#next_question_button').simulate('click')
+  expect(isEveryOptionEnabled()).toEqual(true)
+  wrapper.find('#option4').simulate('click')
+  expect(isEveryOptionDisabled()).toEqual(true)
+})
+
+function isEveryOptionDisabled () {
+  if (
+    wrapper.find('#option1').props().disabled &&
+    wrapper.find('#option2').props().disabled &&
+    wrapper.find('#option3').props().disabled &&
+    wrapper.find('#option4').props().disabled
+  ) {
+    return true
+  }
+  return false
+}
+
+function isEveryOptionEnabled () {
+  if (
+    !wrapper.find('#option1').props().disabled &&
+    !wrapper.find('#option2').props().disabled &&
+    !wrapper.find('#option3').props().disabled &&
+    !wrapper.find('#option4').props().disabled
+  ) {
+    return true
+  }
+  return false
+}
