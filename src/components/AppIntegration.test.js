@@ -68,7 +68,8 @@ describe('When an option is clicked', () => {
     expect(wrapper.find('#current_score_fill').props().style.width).toEqual(
       '0%'
     )
-    // We're using the mock shuffleArray(), so option4 is always the right answer
+    // We're using the mock shuffleArray()
+    // So option4 is always the right answer
     wrapper.find('#option4').simulate('click')
     expect(wrapper.find('#current_score_fill').props().style.width).toEqual(
       '100%'
@@ -196,7 +197,8 @@ describe('When the next question button is clicked', () => {
 
   it('updates the question text', () => {
     expect(wrapper.find('#question_text').text()).toEqual(
-      "What was the name of the hero in the 80s animated video game 'Dragon's Lair'?"
+      "What was the name of the hero in the 80s animated video game 'Dragon's" +
+        " Lair'?"
     )
     wrapper.find('#option1').simulate('click')
     wrapper.find('#next_question_button').simulate('click')
@@ -256,91 +258,103 @@ describe('after the 20th question is answered', () => {
   })
 })
 
-it('disables all options when an option is clicked, enables all options when the next question button is clicked', () => {
-  expect(isEveryOptionEnabled()).toEqual(true)
-  wrapper.find('#option3').simulate('click')
-  expect(isEveryOptionDisabled()).toEqual(true)
-  wrapper.find('#next_question_button').simulate('click')
-  expect(isEveryOptionEnabled()).toEqual(true)
-  wrapper.find('#option2').simulate('click')
-  expect(isEveryOptionDisabled()).toEqual(true)
-  wrapper.find('#next_question_button').simulate('click')
-  expect(isEveryOptionEnabled()).toEqual(true)
-  wrapper.find('#option1').simulate('click')
-  expect(isEveryOptionDisabled()).toEqual(true)
-  wrapper.find('#next_question_button').simulate('click')
-  expect(isEveryOptionEnabled()).toEqual(true)
-  wrapper.find('#option4').simulate('click')
-  expect(isEveryOptionDisabled()).toEqual(true)
-})
+it(
+  'disables all options when an option is clicked, enables all options when ' +
+    'the next question button is clicked',
+  () => {
+    expect(isEveryOptionEnabled()).toEqual(true)
+    wrapper.find('#option3').simulate('click')
+    expect(isEveryOptionDisabled()).toEqual(true)
+    wrapper.find('#next_question_button').simulate('click')
+    expect(isEveryOptionEnabled()).toEqual(true)
+    wrapper.find('#option2').simulate('click')
+    expect(isEveryOptionDisabled()).toEqual(true)
+    wrapper.find('#next_question_button').simulate('click')
+    expect(isEveryOptionEnabled()).toEqual(true)
+    wrapper.find('#option1').simulate('click')
+    expect(isEveryOptionDisabled()).toEqual(true)
+    wrapper.find('#next_question_button').simulate('click')
+    expect(isEveryOptionEnabled()).toEqual(true)
+    wrapper.find('#option4').simulate('click')
+    expect(isEveryOptionDisabled()).toEqual(true)
+  }
+)
 
-it('displays the result card when one of the options is clicked, hides the result card when the next question button is clicked', () => {
-  expect(wrapper.find('#result_card').props().className).toEqual('hidden')
-  wrapper.find('#option1').simulate('click')
-  expect(wrapper.find('#result_card').props().className).toEqual('')
+it(
+  'displays the result card when one of the options is clicked, hides the ' +
+    'result card when the next question button is clicked',
+  () => {
+    expect(wrapper.find('#result_card').props().className).toEqual('hidden')
+    wrapper.find('#option1').simulate('click')
+    expect(wrapper.find('#result_card').props().className).toEqual('')
 
-  wrapper.find('#next_question_button').simulate('click')
-  expect(wrapper.find('#result_card').props().className).toEqual('hidden')
-  wrapper.find('#option2').simulate('click')
-  expect(wrapper.find('#result_card').props().className).toEqual('')
+    wrapper.find('#next_question_button').simulate('click')
+    expect(wrapper.find('#result_card').props().className).toEqual('hidden')
+    wrapper.find('#option2').simulate('click')
+    expect(wrapper.find('#result_card').props().className).toEqual('')
 
-  wrapper.find('#next_question_button').simulate('click')
-  expect(wrapper.find('#result_card').props().className).toEqual('hidden')
-  wrapper.find('#option3').simulate('click')
-  expect(wrapper.find('#result_card').props().className).toEqual('')
+    wrapper.find('#next_question_button').simulate('click')
+    expect(wrapper.find('#result_card').props().className).toEqual('hidden')
+    wrapper.find('#option3').simulate('click')
+    expect(wrapper.find('#result_card').props().className).toEqual('')
 
-  wrapper.find('#next_question_button').simulate('click')
-  expect(wrapper.find('#result_card').props().className).toEqual('hidden')
-  wrapper.find('#option4').simulate('click')
-  expect(wrapper.find('#result_card').props().className).toEqual('')
-})
+    wrapper.find('#next_question_button').simulate('click')
+    expect(wrapper.find('#result_card').props().className).toEqual('hidden')
+    wrapper.find('#option4').simulate('click')
+    expect(wrapper.find('#result_card').props().className).toEqual('')
+  }
+)
 
-it("highlights option that's clicked, removes highlight when the next question button is clicked", () => {
-  expect(wrapper.find('#option1').props().className).toEqual('')
-  expect(wrapper.find('#option2').props().className).toEqual('')
-  expect(wrapper.find('#option3').props().className).toEqual('')
-  expect(wrapper.find('#option4').props().className).toEqual('')
-  wrapper.find('#option1').simulate('click')
-  expect(wrapper.find('#option1').props().className).toEqual('highlighted')
-  expect(wrapper.find('#option2').props().className).toEqual('')
-  expect(wrapper.find('#option3').props().className).toEqual('')
-  expect(wrapper.find('#option4').props().className).toEqual('')
-  wrapper.find('#next_question_button').simulate('click')
-  expect(wrapper.find('#option1').props().className).toEqual('')
-  expect(wrapper.find('#option2').props().className).toEqual('')
-  expect(wrapper.find('#option3').props().className).toEqual('')
-  expect(wrapper.find('#option4').props().className).toEqual('')
-  wrapper.find('#option2').simulate('click')
-  expect(wrapper.find('#option1').props().className).toEqual('')
-  expect(wrapper.find('#option2').props().className).toEqual('highlighted')
-  expect(wrapper.find('#option3').props().className).toEqual('')
-  expect(wrapper.find('#option4').props().className).toEqual('')
-  wrapper.find('#next_question_button').simulate('click')
-  expect(wrapper.find('#option1').props().className).toEqual('')
-  expect(wrapper.find('#option2').props().className).toEqual('')
-  expect(wrapper.find('#option3').props().className).toEqual('')
-  expect(wrapper.find('#option4').props().className).toEqual('')
-  wrapper.find('#option3').simulate('click')
-  expect(wrapper.find('#option1').props().className).toEqual('')
-  expect(wrapper.find('#option2').props().className).toEqual('')
-  expect(wrapper.find('#option3').props().className).toEqual('highlighted')
-  expect(wrapper.find('#option4').props().className).toEqual('')
-  wrapper.find('#next_question_button').simulate('click')
-  expect(wrapper.find('#option1').props().className).toEqual('')
-  expect(wrapper.find('#option2').props().className).toEqual('')
-  expect(wrapper.find('#option3').props().className).toEqual('')
-  expect(wrapper.find('#option4').props().className).toEqual('')
-  wrapper.find('#option4').simulate('click')
-  expect(wrapper.find('#option1').props().className).toEqual('')
-  expect(wrapper.find('#option2').props().className).toEqual('')
-  expect(wrapper.find('#option3').props().className).toEqual('')
-  expect(wrapper.find('#option4').props().className).toEqual('highlighted')
-  wrapper.find('#next_question_button').simulate('click')
-  expect(wrapper.find('#option1').props().className).toEqual('')
-  expect(wrapper.find('#option2').props().className).toEqual('')
-  expect(wrapper.find('#option3').props().className).toEqual('')
-  expect(wrapper.find('#option4').props().className).toEqual('')
-})
+it(
+  "highlights option that's clicked, removes highlight when the next question" +
+    'button is clicked',
+  () => {
+    expect(wrapper.find('#option1').props().className).toEqual('')
+    expect(wrapper.find('#option2').props().className).toEqual('')
+    expect(wrapper.find('#option3').props().className).toEqual('')
+    expect(wrapper.find('#option4').props().className).toEqual('')
+    wrapper.find('#option1').simulate('click')
+    expect(wrapper.find('#option1').props().className).toEqual('highlighted')
+    expect(wrapper.find('#option2').props().className).toEqual('')
+    expect(wrapper.find('#option3').props().className).toEqual('')
+    expect(wrapper.find('#option4').props().className).toEqual('')
+    wrapper.find('#next_question_button').simulate('click')
+    expect(wrapper.find('#option1').props().className).toEqual('')
+    expect(wrapper.find('#option2').props().className).toEqual('')
+    expect(wrapper.find('#option3').props().className).toEqual('')
+    expect(wrapper.find('#option4').props().className).toEqual('')
+    wrapper.find('#option2').simulate('click')
+    expect(wrapper.find('#option1').props().className).toEqual('')
+    expect(wrapper.find('#option2').props().className).toEqual('highlighted')
+    expect(wrapper.find('#option3').props().className).toEqual('')
+    expect(wrapper.find('#option4').props().className).toEqual('')
+    wrapper.find('#next_question_button').simulate('click')
+    expect(wrapper.find('#option1').props().className).toEqual('')
+    expect(wrapper.find('#option2').props().className).toEqual('')
+    expect(wrapper.find('#option3').props().className).toEqual('')
+    expect(wrapper.find('#option4').props().className).toEqual('')
+    wrapper.find('#option3').simulate('click')
+    expect(wrapper.find('#option1').props().className).toEqual('')
+    expect(wrapper.find('#option2').props().className).toEqual('')
+    expect(wrapper.find('#option3').props().className).toEqual('highlighted')
+    expect(wrapper.find('#option4').props().className).toEqual('')
+    wrapper.find('#next_question_button').simulate('click')
+    expect(wrapper.find('#option1').props().className).toEqual('')
+    expect(wrapper.find('#option2').props().className).toEqual('')
+    expect(wrapper.find('#option3').props().className).toEqual('')
+    expect(wrapper.find('#option4').props().className).toEqual('')
+    wrapper.find('#option4').simulate('click')
+    expect(wrapper.find('#option1').props().className).toEqual('')
+    expect(wrapper.find('#option2').props().className).toEqual('')
+    expect(wrapper.find('#option3').props().className).toEqual('')
+    expect(wrapper.find('#option4').props().className).toEqual('highlighted')
+    wrapper.find('#next_question_button').simulate('click')
+    expect(wrapper.find('#option1').props().className).toEqual('')
+    expect(wrapper.find('#option2').props().className).toEqual('')
+    expect(wrapper.find('#option3').props().className).toEqual('')
+    expect(wrapper.find('#option4').props().className).toEqual('')
+  }
+)
 
 function isEveryOptionDisabled () {
   if (
