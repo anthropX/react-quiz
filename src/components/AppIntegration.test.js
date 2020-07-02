@@ -140,3 +140,19 @@ it('resizes min score fill based on the option clicked', () => {
   wrapper.find('#option2').simulate('click')
   expect(wrapper.find('#min_score_fill').props().style.width).toEqual('10%')
 })
+
+it('increments the number of questions answered text when the next question button is clicked', () => {
+  expect(wrapper.find('#no_of_questions_answered_text').text()).toEqual(
+    'Question 0 of 20'
+  )
+  wrapper.find('#option3').simulate('click')
+  wrapper.find('#next_question_button').simulate('click')
+  expect(wrapper.find('#no_of_questions_answered_text').text()).toEqual(
+    'Question 1 of 20'
+  )
+  wrapper.find('#option2').simulate('click')
+  wrapper.find('#next_question_button').simulate('click')
+  expect(wrapper.find('#no_of_questions_answered_text').text()).toEqual(
+    'Question 2 of 20'
+  )
+})
