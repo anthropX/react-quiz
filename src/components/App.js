@@ -55,7 +55,11 @@ function App () {
     }
   }
 
-  function handleNextQuestionButtonClick (event) {}
+  function handleNextQuestionButtonClick (event) {
+    setQuestionIndex(questionIndex + 1)
+    setAreOptionsDisabled(false)
+    setResultText('')
+  }
 
   return (
     <>
