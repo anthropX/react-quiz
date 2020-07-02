@@ -6,8 +6,8 @@ function ScoreCard ({ maxScore, score, minScore }) {
     if (width === 100) {
       return {
         width: width + '%',
-        borderTopRightRadius: '0.4rem',
-        borderBottomRightRadius: '0.4rem'
+        borderTopRightRadius: '0.325rem',
+        borderBottomRightRadius: '0.325rem'
       }
     }
     return { width: width + '%' }
