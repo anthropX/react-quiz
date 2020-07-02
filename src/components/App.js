@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { getValueFromJson, getIncorrectAnswersFromJson } from '../util/api'
 import { shuffleArray } from '../util/array'
-import '../App.css'
 import ProgressBar from './ProgressBar'
 import InfoCard from './InfoCard'
 import QuestionCard from './QuestionCard'
 import ResultCard from './ResultCard'
 import ScoreCard from './ScoreCard'
+import '../App.css'
 export default App
 
 function App () {
