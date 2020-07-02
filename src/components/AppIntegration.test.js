@@ -252,6 +252,18 @@ it('disables all options when an option is clicked, enables all options when the
   expect(isEveryOptionDisabled()).toEqual(true)
 })
 
+describe('after the 20th question is answered', () => {
+  it('displays the game over text', () => {
+    expect(wrapper.find('#game_over_text').props().className).toEqual('none')
+
+    simulateClicks(20)
+    expect(wrapper.find('#game_over_text').props().className).toEqual('none')
+
+    wrapper.find('#option1').simulate('click')
+    expect(wrapper.find('#game_over_text').props().className).toEqual('')
+  })
+})
+
 it('displays the result card when one of the options is clicked, hides the result card when the next question button is clicked', () => {
   expect(wrapper.find('#result_card').props().className).toEqual('hidden')
   wrapper.find('#option1').simulate('click')
@@ -295,4 +307,11 @@ function isEveryOptionEnabled () {
     return true
   }
   return false
+}
+
+function simulateClicks (n) {
+  for (let i = 0; i < n - 1; i++) {
+    wrapper.find('#option1').simulate('click')
+    wrapper.find('#next_question_button').simulate('click')
+  }
 }
