@@ -258,6 +258,7 @@ describe('after the 20th question is answered', () => {
   })
 })
 
+
 it('disables all options when an option is clicked, enables all options when the next question button is clicked', () => {
   expect(isEveryOptionEnabled()).toEqual(true)
   wrapper.find('#option3').simulate('click')

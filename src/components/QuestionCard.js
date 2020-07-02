@@ -7,6 +7,7 @@ function QuestionCard ({
   questionText,
   options,
   areOptionsDisabled,
+  optionSelected,
   onOptionClick
 }) {
   return (
@@ -15,6 +16,7 @@ function QuestionCard ({
       <Options
         options={options}
         areOptionsDisabled={areOptionsDisabled}
+        optionSelected={optionSelected}
         onOptionClick={onOptionClick}
       />
     </div>
@@ -25,5 +27,6 @@ QuestionCard.propTypes = {
   questionText: PropTypes.string,
   options: PropTypes.array,
   areOptionsDisabled: PropTypes.bool,
+  optionSelected: PropTypes.number,
   onOptionClick: PropTypes.func
 }

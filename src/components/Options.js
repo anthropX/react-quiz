@@ -2,7 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 export default Options
 
-function Options ({ options, areOptionsDisabled, onOptionClick }) {
+function Options ({
+  options,
+  areOptionsDisabled,
+  optionSelected,
+  onOptionClick
+}) {
   return (
     <div id='options'>
       {options.map((option, index) => {
@@ -10,7 +15,9 @@ function Options ({ options, areOptionsDisabled, onOptionClick }) {
           <button
             id={`option${index + 1}`}
             disabled={areOptionsDisabled}
+            className={optionSelected === index ? 'highlighted' : ''}
             onClick={onOptionClick}
+            data-key={index}
             key={index}
           >
             {option}
@@ -24,5 +31,6 @@ function Options ({ options, areOptionsDisabled, onOptionClick }) {
 Options.propTypes = {
   options: PropTypes.array,
   areOptionsDisabled: PropTypes.bool,
+  optionSelected: PropTypes.number,
   onOptionClick: PropTypes.func
 }
