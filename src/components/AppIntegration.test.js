@@ -24,19 +24,13 @@ it('resizes progress bar fill when an option is clicked', () => {
   expect(wrapper.find('#progress_bar_fill').props().style.width).toEqual('5%')
   wrapper.find('#option2').simulate('click')
   wrapper.find('#next_question_button').simulate('click')
-  expect(wrapper.find('#progress_bar_fill').props().style.width).toEqual(
-    '10%'
-  )
+  expect(wrapper.find('#progress_bar_fill').props().style.width).toEqual('10%')
   wrapper.find('#option3').simulate('click')
   wrapper.find('#next_question_button').simulate('click')
-  expect(wrapper.find('#progress_bar_fill').props().style.width).toEqual(
-    '15%'
-  )
+  expect(wrapper.find('#progress_bar_fill').props().style.width).toEqual('15%')
   wrapper.find('#option4').simulate('click')
   wrapper.find('#next_question_button').simulate('click')
-  expect(wrapper.find('#progress_bar_fill').props().style.width).toEqual(
-    '20%'
-  )
+  expect(wrapper.find('#progress_bar_fill').props().style.width).toEqual('20%')
 })
 
 it('displays "Correct!" if the option clicked is correct', () => {
@@ -65,7 +59,6 @@ it('displays "Sorry!" if the option clicked is incorrect', () => {
   expect(wrapper.find('#result_text').text()).toEqual('Sorry!')
 })
 
-
 it('resizes current score fill based on the option clicked', () => {
   expect(wrapper.find('#current_score_fill').props().style.width).toEqual('0%')
   // We're using the mock shuffleArray(), so option4 is always the right answer
@@ -75,9 +68,7 @@ it('resizes current score fill based on the option clicked', () => {
   )
   wrapper.find('#next_question_button').simulate('click')
   wrapper.find('#option1').simulate('click')
-  expect(wrapper.find('#current_score_fill').props().style.width).toEqual(
-    '50%'
-  )
+  expect(wrapper.find('#current_score_fill').props().style.width).toEqual('50%')
   wrapper.find('#next_question_button').simulate('click')
   wrapper.find('#option4').simulate('click')
   expect(wrapper.find('#current_score_fill').props().style.width).toEqual(
@@ -85,14 +76,10 @@ it('resizes current score fill based on the option clicked', () => {
   )
   wrapper.find('#next_question_button').simulate('click')
   wrapper.find('#option2').simulate('click')
-  expect(wrapper.find('#current_score_fill').props().style.width).toEqual(
-    '50%'
-  )
+  expect(wrapper.find('#current_score_fill').props().style.width).toEqual('50%')
   wrapper.find('#next_question_button').simulate('click')
   wrapper.find('#option4').simulate('click')
-  expect(wrapper.find('#current_score_fill').props().style.width).toEqual(
-    '60%'
-  )
+  expect(wrapper.find('#current_score_fill').props().style.width).toEqual('60%')
 })
 
 it('resizes max score fill based on the option clicked', () => {
