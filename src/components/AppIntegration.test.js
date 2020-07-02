@@ -234,6 +234,30 @@ describe('When the next question button is clicked', () => {
   })
 })
 
+describe('after the 20th question is answered', () => {
+  it('displays the game over text', () => {
+    expect(wrapper.find('#game_over_text').props().className).toEqual('none')
+
+    simulateClicks(20)
+    expect(wrapper.find('#game_over_text').props().className).toEqual('none')
+
+    wrapper.find('#option1').simulate('click')
+    expect(wrapper.find('#game_over_text').props().className).toEqual('')
+  })
+
+  it('disables next question button', () => {
+    expect(wrapper.find('#next_question_button').props().disabled).toEqual(
+      false
+    )
+    simulateClicks(20)
+    expect(wrapper.find('#next_question_button').props().disabled).toEqual(
+      false
+    )
+    wrapper.find('#option1').simulate('click')
+    expect(wrapper.find('#next_question_button').props().disabled).toEqual(true)
+  })
+})
+
 it('disables all options when an option is clicked, enables all options when the next question button is clicked', () => {
   expect(isEveryOptionEnabled()).toEqual(true)
   wrapper.find('#option3').simulate('click')
@@ -250,18 +274,6 @@ it('disables all options when an option is clicked, enables all options when the
   expect(isEveryOptionEnabled()).toEqual(true)
   wrapper.find('#option4').simulate('click')
   expect(isEveryOptionDisabled()).toEqual(true)
-})
-
-describe('after the 20th question is answered', () => {
-  it('displays the game over text', () => {
-    expect(wrapper.find('#game_over_text').props().className).toEqual('none')
-
-    simulateClicks(20)
-    expect(wrapper.find('#game_over_text').props().className).toEqual('none')
-
-    wrapper.find('#option1').simulate('click')
-    expect(wrapper.find('#game_over_text').props().className).toEqual('')
-  })
 })
 
 it('displays the result card when one of the options is clicked, hides the result card when the next question button is clicked', () => {
