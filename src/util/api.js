@@ -1,5 +1,5 @@
 const questions = require('../data/questions.json')
-module.exports = { getValueFromJson, getIncorrectAnswersFromJson }
+export { getValueFromJson, getIncorrectAnswersFromJson }
 
 function getValueFromJson (index, key) {
   return decodeURIComponent(questions[index][key])

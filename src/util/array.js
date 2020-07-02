@@ -1,4 +1,4 @@
-module.exports = { shuffleArray }
+export { shuffleArray }
 
 function shuffleArray (array) {
   const shuffledArray = [...array]
