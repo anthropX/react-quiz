@@ -195,4 +195,20 @@ describe('When the next question button is clicked', () => {
     wrapper.find('#next_question_button').simulate('click')
     expect(wrapper.find('.fas.fa-star.highlighted').length).toEqual(2)
   })
+
+  it('updates the question text', () => {
+    expect(wrapper.find('#question_text').text()).toEqual(
+      "What was the name of the hero in the 80s animated video game 'Dragon's Lair'?"
+    )
+    wrapper.find('#option1').simulate('click')
+    wrapper.find('#next_question_button').simulate('click')
+    expect(wrapper.find('#question_text').text()).toEqual(
+      'What is the scientific name for modern day humans?'
+    )
+    wrapper.find('#option3').simulate('click')
+    wrapper.find('#next_question_button').simulate('click')
+    expect(wrapper.find('#question_text').text()).toEqual(
+      "What is Ron Weasley's middle name?"
+    )
+  })
 })
