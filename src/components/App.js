@@ -29,22 +29,33 @@ function App () {
       getValueFromJson(questionIndex, 'correct_answer')
     ],
     areOptionsDisabled,
-    onOptionClick: event => {
-      console.log(event.target.id)
-    }
+    onOptionClick: handleOptionClick
   }
   const resultCardProps = {
     resultText,
     noOfQuestionsAnswered,
-    onNextQuestionButtonClick: event => {
-      console.log(event.target.id)
-    }
+    onNextQuestionButtonClick: handleNextQuestionButtonClick
   }
   const scoreCardProps = {
     maxScore: ((noOfCorrectAnswers + 20 - noOfQuestionsAnswered) / 20) * 100,
     score: (noOfCorrectAnswers / noOfQuestionsAnswered) * 100,
     minScore: (noOfCorrectAnswers / 20) * 100
   }
+
+  function handleOptionClick (event) {
+    setNoOfQuestionsAnswered(noOfQuestionsAnswered + 1)
+    setAreOptionsDisabled(true)
+    setResultText('Sorry!')
+    if (
+      event.target.innerHTML ===
+      getValueFromJson(questionIndex, 'correct_answer')
+    ) {
+      setResultText('Correct!')
+      setNoOfCorrectAnswers(noOfCorrectAnswers + 1)
+    }
+  }
+
+  function handleNextQuestionButtonClick (event) {}
 
   return (
     <>
