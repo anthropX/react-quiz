@@ -1,7 +1,7 @@
 import React from 'react'
 export default ScoreCard
 
-function ScoreCard ({ maxScore, score, minScore }) {
+function ScoreCard ({ maxScore, score, minScore, noOfQuestionsAnswered }) {
   return (
     <div id='score_card'>
       <div id='score_text'>
@@ -13,7 +13,11 @@ function ScoreCard ({ maxScore, score, minScore }) {
       <div id='score_bar'>
         <div id='max_score_fill' style={setScoreStyle(maxScore)} />
         <div id='current_score_fill' style={setScoreStyle(score)} />
-        <div id='min_score_fill' style={setScoreStyle(minScore)} />
+        <div
+          id='min_score_fill'
+          className={noOfQuestionsAnswered === 20 ? 'none' : ''}
+          style={setScoreStyle(minScore)}
+        />
       </div>
     </div>
   )

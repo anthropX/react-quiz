@@ -42,7 +42,8 @@ function App () {
   const scoreCardProps = {
     maxScore: ((noOfCorrectAnswers + 20 - noOfQuestionsAnswered) / 20) * 100,
     score: (noOfCorrectAnswers / noOfQuestionsAnswered) * 100,
-    minScore: (noOfCorrectAnswers / 20) * 100
+    minScore: (noOfCorrectAnswers / 20) * 100,
+    noOfQuestionsAnswered
   }
   useEffect(() => {
     setShuffledOptions(

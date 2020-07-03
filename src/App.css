@@ -187,3 +187,8 @@ button.highlight_correct {
   left: -0.5px;
   top: -1px;
 }
+
+#min_score_fill.none {
+  display: block;
+  z-index: -1;
+}
