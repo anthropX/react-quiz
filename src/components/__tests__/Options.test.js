@@ -59,7 +59,7 @@ it('disables buttons based on prop value', () => {
   expect(wrapper.find('#option4').props().disabled).toEqual(true)
 })
 
-it('highlights option based on prop value', () => {
+it('highlights selected option based on prop value', () => {
   expect(wrapper.find('#option1').props().className).toEqual('')
   expect(wrapper.find('#option2').props().className).toEqual('')
   expect(wrapper.find('#option3').props().className).toEqual('')
