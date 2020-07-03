@@ -93,6 +93,7 @@ button {
 
 button:disabled {
   border: 1.4px #a3a3a3 solid;
+  background-color: #f5f5f5;
 }
 
 button.highlight_selected {
