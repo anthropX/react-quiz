@@ -5,7 +5,14 @@ import ScoreCard from '../ScoreCard'
 let wrapper
 
 beforeEach(() => {
-  wrapper = shallow(<ScoreCard maxScore={100} score={0} minScore={0} />)
+  wrapper = shallow(
+    <ScoreCard
+      maxScore={100}
+      score={0}
+      minScore={0}
+      noOfQuestionsAnswered={0}
+    />
+  )
 })
 
 it('renders', () => {
@@ -65,3 +72,20 @@ it('sets size of the min score fill based on prop value', () => {
   wrapper.setProps({ minScore: 80 })
   expect(wrapper.find('#min_score_fill').props().style.width).toEqual('80%')
 })
+
+it(
+  'moves min score fill behind score fill after the 20th question is' +
+    'answered',
+  () => {
+    expect(wrapper.find('#min_score_fill').props().className).toEqual('')
+
+    wrapper.setProps({ noOfQuestionsAnswered: 1 })
+    expect(wrapper.find('#min_score_fill').props().className).toEqual('')
+
+    wrapper.setProps({ noOfQuestionsAnswered: 19 })
+    expect(wrapper.find('#min_score_fill').props().className).toEqual('')
+
+    wrapper.setProps({ noOfQuestionsAnswered: 20 })
+    expect(wrapper.find('#min_score_fill').props().className).toEqual('none')
+  }
+)
