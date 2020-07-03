@@ -16,6 +16,7 @@ function App () {
   const [shuffledOptions, setShuffledOptions] = useState([])
   const [areOptionsDisabled, setAreOptionsDisabled] = useState(false)
   const [optionSelected, setOptionSelected] = useState(-1)
+  const [correctOptionIndex, setCorrectOptionIndex] = useState(-1)
   const [resultText, setResultText] = useState('')
   const progressBarProps = {
     progressPercentage: (noOfQuestionsAnswered / 20) * 100
@@ -30,6 +31,7 @@ function App () {
     options: shuffledOptions,
     areOptionsDisabled,
     optionSelected,
+    correctOptionIndex: correctOptionIndex,
     onOptionClick: handleOptionClick
   }
   const resultCardProps = {
@@ -64,6 +66,7 @@ function App () {
   function handleOptionClick (event) {
     setNoOfQuestionsAnswered(noOfQuestionsAnswered + 1)
     setOptionSelected(Number(event.target.getAttribute('data-key')))
+    setCorrectOptionIndex(getCorrectOptionIndex())
     setAreOptionsDisabled(true)
     setResultText('Sorry!')
     if (
@@ -75,9 +78,18 @@ function App () {
     }
   }
 
+  function getCorrectOptionIndex () {
+    return shuffledOptions.reduce((index, option) => {
+      return option === getValueFromJson(questionIndex, 'correct_answer')
+        ? shuffledOptions.indexOf(option)
+        : index
+    }, -1)
+  }
+
   function handleNextQuestionButtonClick () {
     setQuestionIndex(questionIndex + 1)
     setOptionSelected(-1)
+    setCorrectOptionIndex(-1)
     setAreOptionsDisabled(false)
     setResultText('')
   }

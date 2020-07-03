@@ -306,18 +306,22 @@ it(
 )
 
 it(
-  "highlights option that's clicked, removes highlight when the next question" +
-    'button is clicked',
+  'highlights selected and correct options, removes highlights when the next' +
+    'question button is clicked',
   () => {
     expect(wrapper.find('#option1').props().className).toEqual('')
     expect(wrapper.find('#option2').props().className).toEqual('')
     expect(wrapper.find('#option3').props().className).toEqual('')
     expect(wrapper.find('#option4').props().className).toEqual('')
     wrapper.find('#option1').simulate('click')
-    expect(wrapper.find('#option1').props().className).toEqual('highlighted')
+    expect(wrapper.find('#option1').props().className).toEqual(
+      'highlight_selected'
+    )
     expect(wrapper.find('#option2').props().className).toEqual('')
     expect(wrapper.find('#option3').props().className).toEqual('')
-    expect(wrapper.find('#option4').props().className).toEqual('')
+    expect(wrapper.find('#option4').props().className).toEqual(
+      'highlight_correct'
+    )
     wrapper.find('#next_question_button').simulate('click')
     expect(wrapper.find('#option1').props().className).toEqual('')
     expect(wrapper.find('#option2').props().className).toEqual('')
@@ -325,9 +329,13 @@ it(
     expect(wrapper.find('#option4').props().className).toEqual('')
     wrapper.find('#option2').simulate('click')
     expect(wrapper.find('#option1').props().className).toEqual('')
-    expect(wrapper.find('#option2').props().className).toEqual('highlighted')
+    expect(wrapper.find('#option2').props().className).toEqual(
+      'highlight_selected'
+    )
     expect(wrapper.find('#option3').props().className).toEqual('')
-    expect(wrapper.find('#option4').props().className).toEqual('')
+    expect(wrapper.find('#option4').props().className).toEqual(
+      'highlight_correct'
+    )
     wrapper.find('#next_question_button').simulate('click')
     expect(wrapper.find('#option1').props().className).toEqual('')
     expect(wrapper.find('#option2').props().className).toEqual('')
@@ -336,8 +344,12 @@ it(
     wrapper.find('#option3').simulate('click')
     expect(wrapper.find('#option1').props().className).toEqual('')
     expect(wrapper.find('#option2').props().className).toEqual('')
-    expect(wrapper.find('#option3').props().className).toEqual('highlighted')
-    expect(wrapper.find('#option4').props().className).toEqual('')
+    expect(wrapper.find('#option3').props().className).toEqual(
+      'highlight_selected'
+    )
+    expect(wrapper.find('#option4').props().className).toEqual(
+      'highlight_correct'
+    )
     wrapper.find('#next_question_button').simulate('click')
     expect(wrapper.find('#option1').props().className).toEqual('')
     expect(wrapper.find('#option2').props().className).toEqual('')
@@ -347,7 +359,9 @@ it(
     expect(wrapper.find('#option1').props().className).toEqual('')
     expect(wrapper.find('#option2').props().className).toEqual('')
     expect(wrapper.find('#option3').props().className).toEqual('')
-    expect(wrapper.find('#option4').props().className).toEqual('highlighted')
+    expect(wrapper.find('#option4').props().className).toEqual(
+      'highlight_selected'
+    )
     wrapper.find('#next_question_button').simulate('click')
     expect(wrapper.find('#option1').props().className).toEqual('')
     expect(wrapper.find('#option2').props().className).toEqual('')

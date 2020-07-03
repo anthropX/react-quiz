@@ -15,6 +15,7 @@ beforeEach(() => {
       ]}
       areOptionsDisabled={false}
       optionSelected={-1}
+      correctOptionIndex={-1}
     />
   )
 })
@@ -64,23 +65,23 @@ it('highlights option based on prop value', () => {
   expect(wrapper.find('#option3').props().className).toEqual('')
   expect(wrapper.find('#option4').props().className).toEqual('')
   wrapper.setProps({ optionSelected: 0 })
-  expect(wrapper.find('#option1').props().className).toEqual('highlighted')
+  expect(wrapper.find('#option1').props().className).toEqual('highlight_selected')
   expect(wrapper.find('#option2').props().className).toEqual('')
   expect(wrapper.find('#option3').props().className).toEqual('')
   expect(wrapper.find('#option4').props().className).toEqual('')
   wrapper.setProps({ optionSelected: 1 })
   expect(wrapper.find('#option1').props().className).toEqual('')
-  expect(wrapper.find('#option2').props().className).toEqual('highlighted')
+  expect(wrapper.find('#option2').props().className).toEqual('highlight_selected')
   expect(wrapper.find('#option3').props().className).toEqual('')
   expect(wrapper.find('#option4').props().className).toEqual('')
   wrapper.setProps({ optionSelected: 2 })
   expect(wrapper.find('#option1').props().className).toEqual('')
   expect(wrapper.find('#option2').props().className).toEqual('')
-  expect(wrapper.find('#option3').props().className).toEqual('highlighted')
+  expect(wrapper.find('#option3').props().className).toEqual('highlight_selected')
   expect(wrapper.find('#option4').props().className).toEqual('')
   wrapper.setProps({ optionSelected: 3 })
   expect(wrapper.find('#option1').props().className).toEqual('')
   expect(wrapper.find('#option2').props().className).toEqual('')
   expect(wrapper.find('#option3').props().className).toEqual('')
-  expect(wrapper.find('#option4').props().className).toEqual('highlighted')
+  expect(wrapper.find('#option4').props().className).toEqual('highlight_selected')
 })

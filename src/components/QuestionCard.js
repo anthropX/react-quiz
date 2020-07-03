@@ -8,12 +8,14 @@ function QuestionCard ({
   options,
   areOptionsDisabled,
   optionSelected,
+  correctOptionIndex,
   onOptionClick
 }) {
   const optionsProps = {
     options,
     areOptionsDisabled,
     optionSelected,
+    correctOptionIndex,
     onOptionClick
   }
   return (
@@ -29,5 +31,6 @@ QuestionCard.propTypes = {
   options: PropTypes.array,
   areOptionsDisabled: PropTypes.bool,
   optionSelected: PropTypes.number,
+  correctOptionIndex: PropTypes.number,
   onOptionClick: PropTypes.func
 }

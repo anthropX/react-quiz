@@ -95,9 +95,15 @@ button:disabled {
   border: 1.4px #a3a3a3 solid;
 }
 
-button.highlighted {
+button.highlight_selected {
   background-color: #000;
   color: #fff;
+  border: 1.4px #000 solid;
+}
+
+button.highlight_correct {
+  background-color: #fff;
+  color: #000;
   border: 1.4px #000 solid;
 }
 

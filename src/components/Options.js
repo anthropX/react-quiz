@@ -6,8 +6,15 @@ function Options ({
   options,
   areOptionsDisabled,
   optionSelected,
+  correctOptionIndex,
   onOptionClick
 }) {
+  function setOptionClass (index) {
+    if (optionSelected === index) return 'highlight_selected'
+    else if (correctOptionIndex === index) return 'highlight_correct'
+    return ''
+  }
+
   return (
     <div id='options'>
       {options.map((option, index) => {
@@ -15,7 +22,7 @@ function Options ({
           <button
             id={`option${index + 1}`}
             disabled={areOptionsDisabled}
-            className={optionSelected === index ? 'highlighted' : ''}
+            className={setOptionClass(index)}
             onClick={onOptionClick}
             data-key={index}
             key={index}
@@ -32,5 +39,6 @@ Options.propTypes = {
   options: PropTypes.array,
   areOptionsDisabled: PropTypes.bool,
   optionSelected: PropTypes.number,
+  correctOptionIndex: PropTypes.number,
   onOptionClick: PropTypes.func
 }
