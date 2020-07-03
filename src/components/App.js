@@ -79,20 +79,20 @@ function App () {
     }
   }
 
-  function getCorrectOptionIndex () {
-    return shuffledOptions.reduce((index, option) => {
-      return option === getValueFromJson(questionIndex, 'correct_answer')
-        ? shuffledOptions.indexOf(option)
-        : index
-    }, -1)
-  }
-
   function handleNextQuestionButtonClick () {
     setQuestionIndex(questionIndex + 1)
     setSelectedOptionIndex(-1)
     setCorrectOptionIndex(-1)
     setAreOptionsDisabled(false)
     setResultText('')
+  }
+
+  function getCorrectOptionIndex () {
+    return shuffledOptions.reduce((index, option) => {
+      return option === getValueFromJson(questionIndex, 'correct_answer')
+        ? shuffledOptions.indexOf(option)
+        : index
+    }, -1)
   }
 
   return (
