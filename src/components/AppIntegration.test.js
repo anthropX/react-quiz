@@ -256,6 +256,23 @@ describe('after the 20th question is answered', () => {
     wrapper.find('#option1').simulate('click')
     expect(wrapper.find('#next_question_button').props().disabled).toEqual(true)
   })
+
+  it('moves min score fill behind score fill', () => {
+    expect(wrapper.find('#min_score_fill').props().className).toEqual('')
+
+    wrapper.find('#option1').simulate('click')
+    expect(wrapper.find('#min_score_fill').props().className).toEqual('')
+    wrapper.find('#next_question_button').simulate('click')
+
+    simulateClicks(18)
+
+    wrapper.find('#option4').simulate('click')
+    expect(wrapper.find('#min_score_fill').props().className).toEqual('')
+    wrapper.find('#next_question_button').simulate('click')
+
+    wrapper.find('#option2').simulate('click')
+    expect(wrapper.find('#min_score_fill').props().className).toEqual('none')
+  })
 })
 
 it(
