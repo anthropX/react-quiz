@@ -5,12 +5,12 @@ export default Options
 function Options ({
   options,
   areOptionsDisabled,
-  optionSelected,
+  selectedOptionIndex,
   correctOptionIndex,
   onOptionClick
 }) {
   function setOptionClass (index) {
-    if (optionSelected === index) return 'highlight_selected'
+    if (selectedOptionIndex === index) return 'highlight_selected'
     else if (correctOptionIndex === index) return 'highlight_correct'
     return ''
   }
@@ -38,7 +38,7 @@ function Options ({
 Options.propTypes = {
   options: PropTypes.array,
   areOptionsDisabled: PropTypes.bool,
-  optionSelected: PropTypes.number,
+  selectedOptionIndex: PropTypes.number,
   correctOptionIndex: PropTypes.number,
   onOptionClick: PropTypes.func
 }
