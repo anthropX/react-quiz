@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 export default ScoreCard
 
 function ScoreCard ({ maxScore, score, minScore, noOfQuestionsAnswered }) {
@@ -33,4 +34,11 @@ function setScoreStyle (width) {
     }
   }
   return { width: width + '%' }
+}
+
+ScoreCard.propTypes = {
+  maxScore: PropTypes.number,
+  score: PropTypes.number,
+  minScore: PropTypes.number,
+  noOfQuestionsAnswered: PropTypes.number
 }
