@@ -1,17 +1,7 @@
 import React from 'react'
 export default ScoreCard
+
 function ScoreCard ({ maxScore, score, minScore }) {
-  function setScoreStyle (width) {
-    if (isNaN(width)) return { width: '0%' }
-    if (width === 100) {
-      return {
-        width: width + '%',
-        borderTopRightRadius: '0.325rem',
-        borderBottomRightRadius: '0.325rem'
-      }
-    }
-    return { width: width + '%' }
-  }
   return (
     <div id='score_card'>
       <div id='score_text'>
@@ -27,4 +17,16 @@ function ScoreCard ({ maxScore, score, minScore }) {
       </div>
     </div>
   )
+}
+
+function setScoreStyle (width) {
+  if (isNaN(width)) return { width: '0%' }
+  if (width === 100) {
+    return {
+      width: width + '%',
+      borderTopRightRadius: '0.325rem',
+      borderBottomRightRadius: '0.325rem'
+    }
+  }
+  return { width: width + '%' }
 }
