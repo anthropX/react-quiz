@@ -86,7 +86,6 @@ it('highlights selected option based on prop value', () => {
   expect(wrapper.find('#option4').props().className).toEqual('highlight_selected')
 })
 
-
 it('highlights correct option based on prop value', () => {
   expect(wrapper.find('#option1').props().className).toEqual('')
   expect(wrapper.find('#option2').props().className).toEqual('')
@@ -113,4 +112,3 @@ it('highlights correct option based on prop value', () => {
   expect(wrapper.find('#option3').props().className).toEqual('')
   expect(wrapper.find('#option4').props().className).toEqual('highlight_correct')
 })
-
